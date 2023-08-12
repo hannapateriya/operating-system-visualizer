@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turn Variable</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* background-color: rgb(77, 75, 75); */
+        }
+        
+        body {
+            background-color: #e6e6e6;
+        }
+        
+        body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin:0;
+        padding:0;
+        }
+
+        #navbar {
+        overflow: hidden;
+        background-color: #1a1a1a;
+        }
+
+        #navbar a {
+        float: left;
+        font-size: 20px;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        }
+
+        #dropdown {
+        float: right;
+        overflow: hidden;
+        min-width:260px;
+        /*position: absolute;
+        right:50px;*/
+        }
+
+        #dropdown #dropbtn {
+        font-size: 20px;  
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+        width:260px;
+        }
+
+        #navbar a:hover, #dropdown:hover #dropbtn {background-color: red;
+        }
+
+        #dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 260px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        }
+
+        #dropdown-content a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        }
+
+        #dropdown-content a:hover {
+        background-color: #ddd;
+        }
+
+        #dropdown:hover #dropdown-content {
+        display: block;
+        }
+        
+        #heading {
+            background-color: #595959;
+            height: 65px;
+            text-align: center;
+            color: #d3d2d2;
+            width:450px;
+            margin:auto;
+            margin-bottom: 50px;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+        }
+        
+        .ent-section {
+            background-color: rgb(137 135 135 / 50%);
+            border: 2px solid rgba(0, 0, 0, 0.993);
+            margin: 15px;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .cs-section {
+            background-color: rgb(137 135 135 / 50%);
+            border: 2px solid rgba(0, 0, 0, 0.993);
+            margin: 15px;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .ext-section {
+            background-color: rgb(137 135 135 / 50%);
+            border: 2px solid rgba(0, 0, 0, 0.993);
+            margin: 15px;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .pno {
+            background-color: #DCDCDC;
+            border: 2px solid grey;
+        }
+        
+        .turnvariable {
+            border: 3px solid;
+        }
+        
+        .topcorner {
+            background-color: rgb(137 135 135 / 50%);
+            position: absolute;
+            top: 185px;
+            right: 45px;
+            border: 3px solid black;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        p {
+            margin-bottom: 0px;
+        }
+        
+        .codeSection {
+            background-color: #c0bfbf;
+            border: 1.5px solid black;
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin-top: 2px;
+            color: #585656;
+        }
+        
+        #showEntry,
+        #showCritical,
+        #showExit {
+            width: 10vw;
+            margin: auto;
+        }
+        
+        #turndisplay {
+            margin-left: 4rem;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div id="navbar">
+        <a href="index.html">Deadlock & Concurrency</a>
+        <div id="dropdown">
+          <button id="dropbtn">Algorithms 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div id="dropdown-content">
+            <a href="lock_variable.html">Lock Variable</a>  
+            <a href="TSL.html">TSL Mechanism</a>
+            <a href="turn_variable.html">Turn Variable</a>
+            <a href="binary_semaphore.html">Binary Semaphore</a>
+            <a href="counting_semaphore.html">Counting Semaphore</a>
+            <a href="Peterson's_algorithm.html">Peterson Solution</a>
+            <a href="p&c.html">Producer & Consumer</a>
+            <a href="dining_philosophers.html">Dining Philosopher</a>
+            <a href="Bankers.html">Banker's algorithm</a>
+            </div>
+        </div> 
+      </div>
+
+
+    <div id="heading">
+        <h1 style="padding-top: 6px;">Turn Variable</h1>
+    </div>
+    <div class="topcorner">
+        <p>
+            <div class="codeSection" id="ent-code"><b style="font-weight: bold;">Entry Section</b><br> while (turn ! = I);</div>
+            <div class="codeSection" id="crit-code"><b style="font-weight: bold;">Critical Section</b></div>
+            <div class="codeSection" id="exit-code"><b style="font-weight: bold;">Exit Section</b><br>turn = J;</div>
+        </p>
+    </div>
+
+    <div class="container-fluid p-4">
+        <div class="row">
+            <div class="col-xs-4 col-4">
+                <button class="btn pno btn-sm" id="process1">
+                    Process I
+                </button><br>
+                <button class="btn pno btn-sm" id="process2">
+                    Process J
+                </button>
+            </div>
+            <div class="col-xs-4 col-4">
+
+                <div class="ent-section">
+                    <div class="p-4">
+                        <div>Entry Section</div>
+                        <div class="btn pno btn-sm px-1" id="showEntry"></div>
+                    </div>
+                </div>
+
+                <div class="cs-section">
+                    <div class="p-4">
+                        <div>Crititcal section</div>
+                        <div class="btn pno btn-sm px-1" id="showCritical"></div>
+                    </div>
+                </div>
+
+                <div class="ext-section">
+                    <div class="p-4">
+                        <div>Exit Section</div>
+                        <div class="btn pno btn-sm px-1" id="showExit"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="turndisplay" class="container mt-4 pt-4">
+        <div class="row">
+            <div class="col-5">
+
+            </div>
+            <div class="col-3">
+                <div class="turnvariable" style="border-radius: 7px;">
+                    <div class="text-center" style="background-color: #a3a2a2; border-radius: 5px;">
+                        <!-- Turn Variable -->
+
+                        <h6 style="padding: 10px;">Turn Variable value = <span id="turn"></span></h6>
+
+                        <div style="border-bottom: 1px solid;"></div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#showEntry, #showCritical, #showExit").css("display", "none");
+            let turn = '';
+            let queue = 'EMPTY';
+            let firstclick = true;
+            $('#turn').text(turn);
+
+            $('#process1').click(function(e) {
+                if (firstclick) {
+                    turn = 'I';
+                    firstclick = false;
+                }
+                $('#turn').text(turn);
+                e.preventDefault();
+                runProcess('Process I');
+            });
+
+            $('#process2').click(function(e) {
+                if (firstclick) {
+                    turn = 'J';
+                    firstclick = false;
+                }
+                $('#turn').text(turn);
+                e.preventDefault();
+                runProcess('Process J');
+            });
+
+            function runProcess(msg) {
+                process = msg[8];
+                if (msg === 'Process I') {
+                    $('#process1').hide();
+                } else if (msg === 'Process J') {
+                    $('#process2').hide();
+                }
+                if (process === turn) {
+                    $('#ent-code').css('color', 'black');
+                    $('#showEntry').css('display', 'block');
+                    $('#showEntry').text(msg);
+                    setTimeout(() => {
+                        $('#ent-code').css('color', '#585656');
+                        $('#showEntry').css('display', 'none');
+                        $('#showEntry').text('');
+                        $('#crit-code').css('color', 'black');
+                        $('#showCritical').css('display', 'block');
+                        $('#showCritical').text(msg);
+                        setTimeout(() => {
+                            $('#crit-code').css('color', '#585656');
+                            $('#showCritical').css('display', 'none');
+                            $('#showCritical').text('');
+                            $('#exit-code').css('color', 'black');
+                            $('#showExit').css('display', 'block');
+                            $('#showExit').text(msg);
+                            setTimeout(() => {
+                                $('#exit-code').css('color', '#585656');
+                                $('#showExit').css('display', 'none');
+                                $('#showExit').text('');
+                                // $('#showCritical').text('');
+                                if (turn == 'I') {
+                                    turn = 'J';
+                                } else {
+                                    turn = 'I';
+                                }
+                                $('#turn').text(turn);
+                                if (queue !== 'EMPTY') {
+                                    if (queue === 'Process I') {
+                                        // $('#blocked-process').text('');
+                                        runProcess('Process I');
+                                        queue = 'EMPTY';
+                                    } else if (queue === 'Process J') {
+                                        // $('#blocked-process').text('');
+                                        runProcess('Process J');
+                                        queue = 'EMPTY';
+                                    }
+                                    // $('#blocked-process').text(queue);
+                                }
+                            }, 2000);
+                        }, 5000);
+                    }, 1000);
+                } else {
+                    queue = msg;
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
