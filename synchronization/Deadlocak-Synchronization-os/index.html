@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="home.css">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Deadlock and Synchronization</title>
+  </head>
+
+<body>
+<div class="heading">
+  <b>Deadlock and Synchronization</b>
+</div>
+<div class="flexible">
+  <div class="grid">
+    <!-- <div class="grid__item">
+      <div class="card"><img class="card__img" src="images/bankers.jpg" alt="Desert">
+        <div class="card__content">
+          <h1 class="card__header">Banker's Algorithm</h1>
+          <p class="card__text">The banker's algorithm is a resource allocation algorithm and deadlock avoidance algorithm that tests for safety by simulating the alocation for predetermined maximum possible amounts of all resources and making decision whether allocation should be allowed or not.</p>
+          <a href="Bankers.html"><button class="card__btn">Explore <span>&rarr;</span></button></a>
+        </div>
+      </div>
+    </div>   -->
+    <div class="grid__item">
+      <div class="card"><img class="card__img" src="images/Lock-Variable.png" alt="Lock_varia">
+        <div class="card__content">
+          <h1 class="card__header">Lock Variable</h1>
+          <p class="card__text">A lock variable provides the simplest synchronisation mechanism for processes. It is software mechanism implemented in user mode. It is busy waiting solution that keeps CPU busy even when its technically waiting. If lock=0, CS is vacant otherwise it is occupied.</p>
+          <a href="lock_variable.html"><button class="card__btn">Explore <span>&rarr;</span></button></a>
+        </div>
+      </div>
+    </div>
+    <div class="grid__item">
+      <div class="card"><img class="card__img" src="images/Test-and-Set-Lock.png" alt="Test_set_lock">
+        <div class="card__content">
+          <h1 class="card__header">Test Set Lock</h1>
+          <p class="card__text">This mechanism is a hardware solution to the synchronization problem. It ensures Mutual exclusion and progress. Before entering into CS, a process inquires about the shared lock (either 0 or 1). If it is locked, it keeps on waiting else it enters into CS.</p>
+          <a href="TSL.html"><button class="card__btn">Explore <span>&rarr;</span></button></a>
+        </div>
+      </div>
+    </div>
+    <div class="grid__item">
+      <div class="card"><img class="card__img" src="images/Turn-Variable.png" alt="Canyons">
+        <div class="card__content">
+          <h1 class="card__header">Turn Variable</h1>
+          <p class="card__text">Also known as Strict Alteration Approach, is the software mechanism implemented at user mode. It is busy waiting solution which can be implemented for two processes. A turn variable is used which is actually a lock. It is shared varibale between two processes.</p>
+          <a href="turn_variable.html"><button class="card__btn">Explore <span>&rarr;</span></button></a>
+        </div>
+      </div>
+    </div>
+    <div class="grid__item">
+      <div class="card"><img class="card__img" src="images/peterson.jpg" alt="Canyons">
+        <div class="card__content">
+          <h1 class="card__header">Peterson Method</h1>
+          <p class="card__text">It is software based Solution. It has two shared variable for interest and turn. It is solution for mutual exclusion, progress and bounded waiting as only one process allowed in CS and every process gets a fair chance and no process blocks other process from entering CS.</p>
+          <a href="Peterson's_algorithm.html"><button class="card__btn">Explore <span>&rarr;</span></button></a>
+        </div>
+      </div>
+    </div>
+    <div class="grid__item">
+      <div class="card"><img class="card__img" src="images/binary.jpg" alt="Snowy Mountains">
+        <div class="card__content">
+          <h1 class="card__header">Binary Semaphore</h1>
+          <p class="card__text">They are also known as mutex locks as it provides mutual exclusion. This type of semaphores have their value restricted to 0 and 1. The wait operation works only if semaphore=1, and the signal operation succeeds when semaphore=0.</p>
+          <a href="binary_semaphore.html"><button class="card__btn">Explore <span>&rarr;</span></button></a>
+        </div>
+      </div>
+    </div>
+    <div class="grid__item">
+      <div class="card"><img class="card__img" src="images/counting.jpeg" alt="Canyons">
+        <div class="card__content">
+          <h1 class="card__header">Counting Semaphore</h1>
+          <p class="card__text">They can have any value. They can be used to control access to a resource that has a limitation on the number of simultaneous access. The semaphore can be initialised to the number of instances of the resource. If process find remaining_instances > 0 then it decreses the value and enter CS. During exit the value will be increased by 1.</p>
+          <a href="counting_semaphore.html"><button class="card__btn">Explore <span>&rarr;</span></button></a>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="grid__item">
+      <div class="card"><img class="card__img" src="images/producer_consumer.png" alt="Desert">
+        <div class="card__content">
+          <h1 class="card__header">Producer and Consumer</h1>
+          <p class="card__text">It is a classical multi-process synchronisation problem. There is one producer and one consumer. Producer is producing some items until buffer is full, whereas consumer consumes the item until buffer is empty. They share same memory buffer which is of fixed size. But both cannot access the memory buffer at the same time.</p>
+          <a href="p&c.html"><button class="card__btn">Explore <span>&rarr;</span></button></a>
+        </div>
+      </div>
+    </div> -->
+    <div class="grid__item">
+      <div class="card"><img class="card__img" src="images/dining.jpeg" alt="Desert">
+        <div class="card__content">
+          <h1 class="card__header">Dining Philosopher's problem</h1>
+          <p class="card__text">There are 5 philosophers sharing a circular table and they eat and think alternatively. There is a bowl of rice for each philosophers and 5 chopsticks. A philosopher needs both their right and left chopstick to eat. A philosopher may eat if there are both chopsticks available else puts down their chopstick and begin thinking again.</p>
+          <a href="dining_philosophers.html"><button class="card__btn">Explore <span>&rarr;</span></button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

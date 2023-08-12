@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <title>Banker's Algorithm</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+       
+       
+        body {
+            background-color: #e6e6e6;
+        }
+        
+        body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin:0;
+        padding:0;
+        }
+
+        #navbar {
+        overflow: hidden;
+        background-color: #1a1a1a;
+        }
+
+        #navbar a {
+        float: left;
+        font-size: 20px;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        }
+
+        #dropdown {
+        float: right;
+        overflow: hidden;
+        min-width:260px;
+        /*position: absolute;
+        right:50px;*/
+        }
+
+        #dropdown #dropbtn {
+        font-size: 20px;  
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+        width:260px;
+        }
+
+        #navbar a:hover, #dropdown:hover #dropbtn {background-color: red;
+        }
+
+        #dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 260px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        }
+
+        #dropdown-content a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        }
+
+        #dropdown-content a:hover {
+        background-color: #ddd;
+        }
+
+        #dropdown:hover #dropdown-content {
+        display: block;
+        }
+        #heading {
+            background-color: #595959;
+            height: 65px;
+            text-align: center;
+            color: #d3d2d2;
+            width:450px;
+            margin:auto;
+            margin-bottom: 50px;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            margin-top: -24px;
+        }
+    </style>
+    
+    
+</head>
+<body>
+    <div id="navbar">
+        <a href="index.html">Deadlock & Concurrency</a>
+        <div id="dropdown">
+          <button id="dropbtn">Algorithms 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div id="dropdown-content">
+            <a href="lock_variable.html">Lock Variable</a>  
+            <a href="TSL.html">TSL Mechanism</a>
+            <a href="turn_variable.html">Turn Variable</a>
+            <a href="binary_semaphore.html">Binary Semaphore</a>
+            <a href="counting_semaphore.html">Counting Semaphore</a>
+            <a href="Peterson's_algorithm.html">Peterson Solution</a>
+            <a href="p&c.html">Producer & Consumer</a>
+            <a href="dining_philosophers.html">Dining Philosopher</a>
+            <a href="Bankers.html">Banker's algorithm</a>
+            </div>
+        </div> 
+      </div>
+    <div class="container-fluid p-4">
+        <div class="row">
+            <div class="col-2" id="col2"></div>
+            <div class="col-8" id="col8">
+                <div>
+                    <div id="heading">
+                        <center><u><h2>Banker's Algorithm</h2></u></center>
+                    </div>
+                    <form id="initial-submit" class="form" style="margin-top:50px;">
+                        <div class="form-group">
+                            <label for="processes">Processes</label>
+                            <input type="number" class="form-control" id="processes"
+                                placeholder="Enter Number of processes in the system" name="processes" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="resources">Resources</label>
+                            <input type="number" class="form-control" id="resources"
+                                placeholder="Enter Total Number of resources required for completion" name="resources" required>
+                        </div>
+                
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary initial-btn">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="Bankers.js"></script>
+</body>
+</html>
